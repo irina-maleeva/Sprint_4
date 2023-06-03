@@ -9,8 +9,8 @@ import ru.praktikum.selenium.pageobject.OrderPage;
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class OrderTest extends BaseTest {
-    static HomePage homePage;
-    static OrderPage orderPage;
+    HomePage homePage;
+    OrderPage orderPage;
     TestData dataSetForOrderViaButtonInHeader = new TestData("Ян", "Ли", "3-я улица Ямского поля, 6", "Черкизовская", "+79160000002", "15.06.2023",
             "Позвоните мне");
     TestData dataSetForOrderViaButtonInBottom = new TestData("Яна", "Рождественская", "Зубовский бульвар, 5", "Преображенская площадь", "+791600000027",
