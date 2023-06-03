@@ -11,15 +11,16 @@ public class BaseTest {
     WebDriver webDriver;
 
     @Before
-    public void setUp()  {
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().browserVersion("113").setup();
         webDriver = new ChromeDriver(options);
         webDriver.get("https://qa-scooter.praktikum-services.ru/");
     }
+
     @After
-    public void tearDown()  {
+    public void tearDown() {
         webDriver.quit();
     }
 }

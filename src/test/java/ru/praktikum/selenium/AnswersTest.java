@@ -6,8 +6,8 @@ import org.junit.runners.Parameterized;
 import ru.praktikum.selenium.pageobject.HomePage;
 
 @RunWith(Parameterized.class)
-public class AnswersTest extends BaseTest{
-    static HomePage homePage;
+public class AnswersTest extends BaseTest {
+    HomePage homePage;
     public int number;
     public String answerText;
 
@@ -16,7 +16,7 @@ public class AnswersTest extends BaseTest{
         this.answerText = answerText;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Номер вопроса: {0} Ответ: {1}")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {1, "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
@@ -31,7 +31,7 @@ public class AnswersTest extends BaseTest{
     }
 
     @Test
-    public void answersTest(){
+    public void answersTest() {
 
         homePage = new HomePage(webDriver);
         homePage.scrollToQuestionsSection();
