@@ -6,9 +6,9 @@ import ru.praktikum.selenium.pageobject.HomePage;
 import ru.praktikum.selenium.pageobject.OrderPage;
 
 public class OrderTest extends BaseTest {
-    TestData testDataSet1 = new TestData("Ян", "Ли", "3-я улица Ямского поля, 6", "Черкизовская", "+79160000002", "15.06.2023",
+    TestData dataSetForOrderViaButtonInHeader = new TestData("Ян", "Ли", "3-я улица Ямского поля, 6", "Черкизовская", "+79160000002", "15.06.2023",
             "Позвоните мне");
-    TestData testDataSet2 = new TestData("Яна", "Рождественская", "Зубовский бульвар, 5", "Преображенская площадь", "+791600000027",
+    TestData dataSetForOrderViaButtonInBottom = new TestData("Яна", "Рождественская", "Зубовский бульвар, 5", "Преображенская площадь", "+791600000027",
             "14.07.2023", "Лучше стучать");
 
     static HomePage homePage;
@@ -21,13 +21,13 @@ public class OrderTest extends BaseTest {
         homePage.clickOrderButton();
         orderPage = new OrderPage(webDriver);
         orderPage.waitForPageLoad();
-        orderPage.fillFirstFormFields(testDataSet1);
+        orderPage.fillFirstFormFields(dataSetForOrderViaButtonInHeader);
         orderPage.clickSubmitButton();
         orderPage.waitForDetailsFormLoad();
-        orderPage.chooseDate(testDataSet1.date);
+        orderPage.chooseDate(dataSetForOrderViaButtonInHeader.date);
         orderPage.chooseRentDuration();
         orderPage.chooseGreyColor();
-        orderPage.writeComment(testDataSet1.comment);
+        orderPage.writeComment(dataSetForOrderViaButtonInHeader.comment);
         orderPage.clickOrderButton();
         orderPage.clickYesButton();
         orderPage.waitConfirmation();
@@ -42,13 +42,13 @@ public class OrderTest extends BaseTest {
         homePage.clickOrderButtonInBottom();
         orderPage = new OrderPage(webDriver);
         orderPage.waitForPageLoad();
-        orderPage.fillFirstFormFields(testDataSet2);
+        orderPage.fillFirstFormFields(dataSetForOrderViaButtonInBottom);
         orderPage.clickSubmitButton();
         orderPage.waitForDetailsFormLoad();
-        orderPage.chooseDate(testDataSet2.date);
+        orderPage.chooseDate(dataSetForOrderViaButtonInBottom.date);
         orderPage.chooseRentDuration();
         orderPage.chooseBlackColor();
-        orderPage.writeComment(testDataSet2.comment);
+        orderPage.writeComment(dataSetForOrderViaButtonInBottom.comment);
         orderPage.clickOrderButton();
         orderPage.clickYesButton();
         orderPage.waitConfirmation();
