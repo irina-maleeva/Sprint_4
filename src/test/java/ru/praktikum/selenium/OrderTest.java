@@ -1,9 +1,12 @@
 package ru.praktikum.selenium;
 
+import org.junit.Assert;
 import org.junit.Test;
 import ru.praktikum.selenium.data.TestData;
 import ru.praktikum.selenium.pageobject.HomePage;
 import ru.praktikum.selenium.pageobject.OrderPage;
+
+import static org.hamcrest.CoreMatchers.containsString;
 
 public class OrderTest extends BaseTest {
     TestData dataSetForOrderViaButtonInHeader = new TestData("Ян", "Ли", "3-я улица Ямского поля, 6", "Черкизовская", "+79160000002", "15.06.2023",
@@ -31,7 +34,7 @@ public class OrderTest extends BaseTest {
         orderPage.clickOrderButton();
         orderPage.clickYesButton();
         orderPage.waitConfirmation();
-        assert orderPage.getConfirmationHeadingText().contains("Заказ оформлен");
+        Assert.assertThat(orderPage.getConfirmationHeadingText(), containsString("Заказ оформлен"));
     }
 
     @Test
@@ -52,6 +55,6 @@ public class OrderTest extends BaseTest {
         orderPage.clickOrderButton();
         orderPage.clickYesButton();
         orderPage.waitConfirmation();
-        assert orderPage.getConfirmationHeadingText().contains("Заказ оформлен");
+        Assert.assertThat(orderPage.getConfirmationHeadingText(), containsString("Заказ оформлен"));
     }
 }
